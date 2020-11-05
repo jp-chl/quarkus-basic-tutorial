@@ -46,6 +46,10 @@ You can also check developers by using command line:
 curl -s -w "\n" http://localhost:8080/developer
 ```
 
+## Troubleshooting
+* In the video, ```@Min```annotation is used for String field. Instead, you should use ```@Size```; [check this stack overflow explanation](https://stackoverflow.com/questions/46766162/javax-bean-validation-max-and-min-is-not-working).
+
+
 ---
 
 # General instructions

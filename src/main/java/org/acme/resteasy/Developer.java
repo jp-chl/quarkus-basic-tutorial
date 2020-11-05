@@ -3,6 +3,7 @@ package org.acme.resteasy;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
@@ -13,7 +14,7 @@ public class Developer extends PanacheEntity {
     //
     // It will be private at building time,
     // and setters/getters are automatic
-    @Min(3)
+    @Size(min = 3)
     public String name;
 
     @Column(columnDefinition = "varchar(255) default 'Quarkus'")
