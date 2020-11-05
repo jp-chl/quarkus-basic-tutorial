@@ -3,6 +3,7 @@ package org.acme.resteasy;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -25,7 +26,7 @@ public class DeveloperResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response newDeveloper(Developer developer) {
+    public Response newDeveloper(@Valid Developer developer) {
         developer.id = null;
         developer.persist();
         return Response.status(Status.CREATED)
