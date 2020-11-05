@@ -1,5 +1,5 @@
 # Quarkus simple example
-(Based on: https://www.youtube.com/watch?v=djimiHdn0f8&feature=emb_logo)
+(Based on: https://www.youtube.com/watch?v=djimiHdn0f8)
 
 ## Dependencies
 * Java: 11
