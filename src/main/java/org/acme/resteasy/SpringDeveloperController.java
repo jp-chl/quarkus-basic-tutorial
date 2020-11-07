@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/spring-developer")
@@ -15,13 +16,16 @@ public class SpringDeveloperController {
     @Inject
     SpringDeveloperRepository developerRepository;
 
-    @GetMapping("/asQuarkus")
+    @GetMapping("/asPanache")
     public List<Developer> developersAsQuarkus() {
         return Developer.listAll();
     }
 
-    @GetMapping("/asSpring")
-    public List<Developer> developersAsSpring() {
+    @GetMapping("/asJpaRepository")
+    public List<Developer> developersAsSpring(@RequestParam("chilean") boolean chilean) {
+        if (chilean) {
+            return developerRepository.findByName("jpv");
+        }
         return developerRepository.findAll();
     }
 }

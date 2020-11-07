@@ -11,11 +11,6 @@ You can run a MariaDB instance like:
 $ docker run -d --name mariadb -p 3306:3306 -e MYSQL_USER=sparksjoy -e MYSQL_PASSWORD=sparksjoy -e MYSQL_ROOT_PASSWORD=sparksjoy -e MYSQL_DATABASE=sparksjoy mariadb:10.4
 ```
 
-And start Quarkus, in dev mode:
-```bash
-$ mvn quarkus:dev
-```
-
 Check DB content:
 ```bash
 docker exec -it mariadb bash
@@ -26,13 +21,29 @@ mysql --user=sparksjoy --password=sparksjoy sparksjoy
 
 MariaDB [sparksjoy]> show tables;
 ```
-> It won't show any new table
+> It won't show any new table (like _"Empty set (0.000 sec)_")
+
+**Start Quarkus**, in dev mode:
+```bash
+$ mvn quarkus:dev
+```
 
 Access to "developer" endpoint:
 ```bash
 open http://localhost:8080/developer
 ```
 > You will se an empty json, but new tables should be already created
+
+```sql
+MariaDB [sparksjoy]> show tables;
++---------------------+
+| Tables_in_sparksjoy |
++---------------------+
+| Developer           |
+| hibernate_sequence  |
++---------------------+
+...
+```
 
 
 You can try endpoint in embedded swagger:
@@ -47,7 +58,7 @@ curl -s -w "\n" http://localhost:8080/developer
 ```
 
 ## Troubleshooting
-* In the video, ```@Min```annotation is used for String field. Instead, you should use ```@Size```; [check this stack overflow explanation](https://stackoverflow.com/questions/46766162/javax-bean-validation-max-and-min-is-not-working).
+* In the video, ```@Min``` annotation is used for String field. Instead, you should use ```@Size```; [check this stack overflow explanation](https://stackoverflow.com/questions/46766162/javax-bean-validation-max-and-min-is-not-working).
 
 
 ---
