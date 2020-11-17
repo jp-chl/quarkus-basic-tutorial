@@ -19,7 +19,7 @@ public class ExampleResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return greeting.orElse("Hallo");
+        return greeting.orElse("hello");
     }
 
     @Path("/async")
