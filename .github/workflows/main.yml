@@ -46,5 +46,4 @@ jobs:
       - name: Display branch name
         shell: bash
         run: |
-          echo "Branch name: + $BRANCH_NAME"
-          echo "Branch2 name: + $BN"
+          echo "Branch name: + $BRANCH_NAME. Branch2 name: + $BN"
