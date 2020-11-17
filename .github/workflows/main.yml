@@ -37,11 +37,8 @@ jobs:
         #run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         run:  |
           echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+          echo "BN=develop2" >> $GITHUB_ENV
         id: extract_branch
-      
-      - name: More Envs
-        env:
-          BN: develop2
 
       - name: Display branch name
         shell: bash
