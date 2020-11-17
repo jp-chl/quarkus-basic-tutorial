@@ -47,3 +47,7 @@ jobs:
       - name: Display image tag
         shell: bash
         run: echo $IMAGE_TAG
+
+      - name: Display Github Sha
+        shell: bash
+        run: echo ${{ github.sha }}
